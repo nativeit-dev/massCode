@@ -15,11 +15,11 @@ all: install build package
 
 # Install dependencies
 install:
-  npm install
+  npm install -g pnpm && pnpm install
 
 # Build the project
 build:
-  npm run build
+  npm run ts-check:vue && npm run copy:plist && npm run build:ts && node ./scripts/build.ts
 
 # Package the Electron app
 package:

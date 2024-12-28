@@ -13,7 +13,7 @@ RUN git clone -b dev https://github.com/nativeit-dev/massCode /usr/src/app
 WORKDIR /usr/src/app
 
 # Install project dependencies
-RUN npm install
+RUN npm install -g pnpm && pnpm install
 
 # Build the project using the Makefile
 RUN make all
