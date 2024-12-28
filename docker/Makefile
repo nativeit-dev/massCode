@@ -1,15 +1,15 @@
-.PHONY: build-18 build-18-slim
+.PHONY: build-14 build-14-slim
 
 DOCKER_USERNAME=nativeit
 APPLICATION_NAME=electron
-NODE_VER=18
+NODE_VER=14
 DOCKER_IMAGE=nativeit/electron
 
-build-18:
-	docker build -t ${DOCKER_IMAGE}:18 -f 18/Dockerfile .
+build-14:
+	docker build -t ${DOCKER_IMAGE}:14 -f 14/Dockerfile .
 
-build-18-slim:
-	docker build -t ${DOCKER_IMAGE}:18-slim -f 18/Dockerfile.slim .
+build-14-slim:
+	docker build -t ${DOCKER_IMAGE}:14-slim -f 14/Dockerfile.slim .
 
 push:
   docker push ${DOCKER_USERNAME}/${APPLICATION_NAME}:${}
