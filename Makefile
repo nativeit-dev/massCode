@@ -11,7 +11,8 @@ ELECTRON = ./node_modules/.bin/electron
 ELECTRON_PACKAGER = ./node_modules/.bin/electron-packager
 
 # Default target
-all: install build package
+all:
+  install build package
 
 # Install dependencies
 install:
