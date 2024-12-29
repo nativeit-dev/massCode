@@ -22,7 +22,7 @@ build-slim:
 
 # Build the dev Docker image
 build-dev:
-  docker build -t ${DOCKER_IMAGE}:dev-${APP_VER}-dev -f ./Dockerfile.electron .
+  docker build -t ${DOCKER_IMAGE}:${APP_VER}-dev -f ./Dockerfile.dev .
 
 # Push the Docker image
 push:
