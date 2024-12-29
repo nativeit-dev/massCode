@@ -23,14 +23,14 @@ build:
 
 # Package the Electron app
 package:
-$(ELECTRON_PACKAGER) $(BUILD_DIR) $(APP_NAME) --out=$(DIST_DIR)
+	$(ELECTRON_PACKAGER) $(BUILD_DIR) $(APP_NAME) --out=$(DIST_DIR)
 
 # Clean the build and dist directories
 clean:
-rm -rf $(BUILD_DIR) $(DIST_DIR)
+	rm -rf $(BUILD_DIR) $(DIST_DIR)
 
 # Run the Electron app
 run:
-$(ELECTRON) .
+	$(ELECTRON) .
 
 .PHONY: all install build package clean run
