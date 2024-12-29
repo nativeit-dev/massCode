@@ -6,10 +6,10 @@ NODE_VER=18
 DOCKER_IMAGE=nativeit/electron
 
 build-18:
-	docker build -t ${DOCKER_IMAGE}:18 -f 18/Dockerfile .
+	docker build -t ${DOCKER_IMAGE}:18 -f ./Dockerfile .
 
 build-18-slim:
-	docker build -t ${DOCKER_IMAGE}:18-slim -f 18/Dockerfile.slim .
+	docker build -t ${DOCKER_IMAGE}:18-slim -f ./Dockerfile.slim .
 
 push:
   docker push ${DOCKER_USERNAME}/${APPLICATION_NAME}:${}
