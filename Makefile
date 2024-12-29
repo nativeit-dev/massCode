@@ -49,4 +49,4 @@ clean:
 run:
 	$(ELECTRON) .
 
-.PHONY: all install build package clean run
+.PHONY: all devserver lint lint-fix test install build package clean run
