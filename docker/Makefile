@@ -19,18 +19,17 @@ build-slim:
 # Build the dev Docker image
 build-dev:
   docker build -t ${DOCKER_USERNAME}/${APPLICATION_NAME}:${APP_VER}-dev -f ./Dockerfile .
-  run
 
 # Run the Docker image
 run:
-  docker exec -it ${DOCKER_USERNAME}/${APPLICATION_NAME}:${APP_VER}-dev /bin/bash
+  docker exec -it ${DOCKER_USERNAME}/${APPLICATION_NAME}:${APP_VER}-dev /bin/bash .
 
 # Push the Docker image
 push:
-  docker push ${DOCKER_USERNAME}/${APPLICATION_NAME}:${APP_VER}
+  docker push ${DOCKER_USERNAME}/${APPLICATION_NAME}:${APP_VER} .
 
 # Push all Docker images
 push-all:
-  docker push ${DOCKER_USERNAME}/${APPLICATION_NAME}:${APP_VER}
-  docker push ${DOCKER_USERNAME}/${APPLICATION_NAME}:${APP_VER}-slim
-  docker push ${DOCKER_USERNAME}/${APPLICATION_NAME}:${APP_VER}-dev
+  docker push ${DOCKER_USERNAME}/${APPLICATION_NAME}:${APP_VER} .
+  docker push ${DOCKER_USERNAME}/${APPLICATION_NAME}:${APP_VER}-slim .
+  docker push ${DOCKER_USERNAME}/${APPLICATION_NAME}:${APP_VER}-dev .
