@@ -1,7 +1,7 @@
 {
-  "name": "masscode",
+  "name": "masscode-dev",
   "productName": "massCode",
-  "version": "3.11.0",
+  "version": "0.3.11.0",
   "description": "A free and open source code snippets manager for developers",
   "license": "AGPL-3.0",
   "main": "build/src/main/index.js",
@@ -26,7 +26,8 @@
   "repository": "https://github.com/nativeit-dev/massCode",
   "author": {
     "name": "Anton Reshetov",
-    "url": "https://github.com/antonreshetov"
+    "url": "https://github.com/antonreshetov",
+    "email": "author@masscode.io"
   },
   "lint-staged": {
     "*.{js,ts,vue}": [

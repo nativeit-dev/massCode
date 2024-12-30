@@ -1,13 +1,15 @@
-FROM node:18-bookworm
+FROM debian:bookworm
 
 LABEL maintainer="S Davis<sdavis@nativeit.net>"
+
+WORKDIR /app
 
 RUN apt-get update && \
     apt-get dist-upgrade -y && \
     apt-get install -y git curl zip bzip2 make nano && \
-    git clone https://github.com/nativeit-dev/massCode.git && \
-    cd massCode && git checkout dev && \
-    git fetch && git pull && \
+    curl -sL https://deb.nodesource.com/setup_18.12 | sudo -E bash - && sudo apt-get install -y nodejs && \
+    git clone https://github.com/nativeit-dev/massCode.git /app && \
+    git checkout dev && git fetch && git pull && \
     npm install -g pnpm && pnpm install && \
     pnpm run build:ts
     #apt-get clean -y && apt-get autoclean -y && apt-get autoremove -y && \
