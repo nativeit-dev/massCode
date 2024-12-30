@@ -9,5 +9,6 @@ RUN apt-get update && \
     cd massCode && git checkout dev && \
     git fetch && git pull && \
     npm install -g pnpm && pnpm install && \
-    apt-get clean -y && apt-get autoclean -y && apt-get autoremove -y && \
-    rm -rf /var/lib/apt/lists/* /var/lib/log/* /tmp/* /var/tmp/*
+    pnpm run build:ts
+    #apt-get clean -y && apt-get autoclean -y && apt-get autoremove -y && \
+    #rm -rf /var/lib/apt/lists/* /var/lib/log/* /tmp/* /var/tmp/*

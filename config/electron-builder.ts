@@ -47,7 +47,7 @@ export default {
   },
   linux: {
     target: ['snap', 'deb'],
-    category: 'Development Tools'
+    category: 'Development Tools',
     icon: 'config/icons'
   },
   extraMetadata: {
