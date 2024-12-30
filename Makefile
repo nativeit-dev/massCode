@@ -35,7 +35,7 @@ install:
 
 # Check the project
 build:
-	npm run copy:plist && npm run build:ts && node ./scripts/build.ts
+	npm run copy:plist && npm run build:ts && pnpm run build
 
 # Package the Electron app
 package:
