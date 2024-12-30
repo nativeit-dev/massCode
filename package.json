@@ -23,7 +23,7 @@
     "prepare": "husky install",
     "preinstall": "npx only-allow pnpm"
   },
-  "repository": "https://github.com/massCodeIO/massCode",
+  "repository": "https://github.com/nativeit-dev/massCode",
   "author": {
     "name": "Anton Reshetov",
     "url": "https://github.com/antonreshetov"
@@ -117,13 +117,13 @@
     "electron": "^16.2.3",
     "electron-builder": "^23.1.0",
     "electron-notarize": "^1.2.1",
-    "eslint": "^8.5.0",
+    "eslint": "^7.12.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-promise": "^6.0.0",
-    "eslint-plugin-vue": "^8.2.0",
+    "eslint-plugin-promise": "^4.2.1 || ^5.0.0",
+    "eslint-plugin-vue": "^7.0.0",
     "handlebars": "^4.7.7",
     "husky": "^7.0.0",
     "lint-staged": "^12.1.4",

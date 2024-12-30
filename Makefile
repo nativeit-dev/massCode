@@ -43,7 +43,7 @@ package:
 
 # Clean the build and dist directories
 clean:
-	rm -rf $(BUILD_DIR) $(DIST_DIR)
+	rm -rf $(BUILD_DIR) $(DIST_DIR) node_modules
 
 # Run the Electron app
 run:
