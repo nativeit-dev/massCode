@@ -19,7 +19,7 @@ build-slim:
 
 # Build the dev Docker image
 build-dev:
-	docker build -t ${DOCKER_USERNAME}/${APPLICATION_NAME}:${APP_VER}-dev -f ./Dockerfile .
+	docker build -t ${DOCKER_USERNAME}/${APPLICATION_NAME}:${APP_VER}-dev -f ./Dockerfile.dev .
 
 # Run the dev image
 run-dev:

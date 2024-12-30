@@ -2,15 +2,17 @@ FROM debian:bookworm
 
 LABEL maintainer="S Davis<sdavis@nativeit.net>"
 
-WORKDIR /app
+WORKDIR /
+RUN   curl -sL https://deb.nodesource.com/setup_18.12 | bash - && \
+  apt-get update && \
+  apt-get dist-upgrade -y && \
+  apt-get install -y git curl zip bzip2 make nano nodejs && \
+  git clone https://github.com/nativeit-dev/massCode.git /app
 
-RUN apt-get update && \
-    apt-get dist-upgrade -y && \
-    apt-get install -y git curl zip bzip2 make nano && \
-    curl -sL https://deb.nodesource.com/setup_18.12 | sudo -E bash - && sudo apt-get install -y nodejs && \
-    git clone https://github.com/nativeit-dev/massCode.git /app && \
-    git checkout dev && git fetch && git pull && \
-    npm install -g pnpm && pnpm install && \
-    pnpm run build:ts
-    #apt-get clean -y && apt-get autoclean -y && apt-get autoremove -y && \
-    #rm -rf /var/lib/apt/lists/* /var/lib/log/* /tmp/* /var/tmp/*
+WORKDIR /app
+RUN git checkout dev && \
+  npm install -g pnpm && pnpm install && \
+  npm install electron --save-dev && \
+  pnpm run build:ts
+#apt-get clean -y && apt-get autoclean -y && apt-get autoremove -y && \
+#rm -rf /var/lib/apt/lists/* /var/lib/log/* /tmp/* /var/tmp/*
