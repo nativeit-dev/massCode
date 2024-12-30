@@ -1,4 +1,4 @@
-.PHONY: all build build-slim build-dev push push-all
+.PHONY: all build build-slim build-dev run push push-all
 
 DOCKER_USERNAME=nativeit
 APPLICATION_NAME=masscode
@@ -18,7 +18,12 @@ build-slim:
 
 # Build the dev Docker image
 build-dev:
-  docker build -t ${DOCKER_USERNAME}/${APPLICATION_NAME}:${APP_VER}-dev -f ./Dockerfile.dev .
+  docker build -t ${DOCKER_USERNAME}/${APPLICATION_NAME}:${APP_VER}-dev -f ./Dockerfile .
+  run
+
+# Run the Docker image
+run:
+  docker exec -it ${DOCKER_USERNAME}/${APPLICATION_NAME}:${APP_VER}-dev /bin/bash
 
 # Push the Docker image
 push:
