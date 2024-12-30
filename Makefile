@@ -39,7 +39,7 @@ build:
 
 # Package the Electron app
 package:
-	$(ELECTRON_PACKAGER) $(BUILD_DIR) $(APP_NAME) --out=$(DIST_DIR)
+	npx @electron/packager . massCode --platform=win32,linux --arch=x64 --out=${DIST_DIR}
 
 # Clean the build and dist directories
 clean:
