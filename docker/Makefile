@@ -1,5 +1,6 @@
-.PHONY: all build build-slim build-dev run push push-all
+# Makefile for building and pushing Docker images
 
+# Setup variables
 DOCKER_USERNAME=nativeit
 APPLICATION_NAME=masscode
 APP_VER="v0.0.1"
@@ -33,3 +34,5 @@ push-all:
   docker push ${DOCKER_USERNAME}/${APPLICATION_NAME}:${APP_VER} .
   docker push ${DOCKER_USERNAME}/${APPLICATION_NAME}:${APP_VER}-slim .
   docker push ${DOCKER_USERNAME}/${APPLICATION_NAME}:${APP_VER}-dev .
+
+.PHONY: all build build-slim build-dev run push push-all
