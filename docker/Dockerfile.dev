@@ -1,16 +1,13 @@
-FROM debian:bookworm
+FROM node:18-bookworm
 
 LABEL maintainer="S Davis<sdavis@nativeit.net>"
 
 WORKDIR /app
-RUN   curl -sL https://deb.nodesource.com/setup_18.12 | bash - && \
-  apt-get update && \
-  apt-get dist-upgrade -y && \
-  apt-get install -y git curl zip bzip2 make nano nodejs && \
+RUN apt-get update && apt-get dist-upgrade -y && \
+  apt-get install -y git curl zip bzip2 make nano && \
   git clone -b dev https://github.com/nativeit-dev/massCode.git /app && \
   npm install -g pnpm && pnpm install && \
-  npm install electron --save-dev
-  #&& \
-  #pnpm run build:ts
+  npm install electron --save-dev && \
+  pnpm run build:ts
 #apt-get clean -y && apt-get autoclean -y && apt-get autoremove -y && \
 #rm -rf /var/lib/apt/lists/* /var/lib/log/* /tmp/* /var/tmp/*

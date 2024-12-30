@@ -23,7 +23,7 @@ build-dev:
 
 # Run the dev image
 run-dev:
-	docker run -it ${DOCKER_USERNAME}/${APPLICATION_NAME}:${APP_VER} /bin/bash
+	docker run -it ${DOCKER_USERNAME}/${APPLICATION_NAME}:${APP_VER}-dev /bin/bash
 
 # Run the Docker image
 run:
