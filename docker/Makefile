@@ -1,12 +1,12 @@
 # Makefile for building and pushing Docker images
 
 # Setup variables
-DOCKER_USERNAME=nativeit
-APPLICATION_NAME=masscode
-APP_VER="v0.0.1"
-NODE_VER=18
+DOCKER_USERNAME = nativeit
+APPLICATION_NAME = masscode
+APP_VER = 0.0.1
+NODE_VER = 18
 
-# Default target
+# Build and push all images
 all: build build-slim build-dev push-all
 
 # Build the Docker image
@@ -19,20 +19,24 @@ build-slim:
 
 # Build the dev Docker image
 build-dev:
-  docker build -t ${DOCKER_USERNAME}/${APPLICATION_NAME}:${APP_VER}-dev -f ./Dockerfile .
+	docker build -t ${DOCKER_USERNAME}/${APPLICATION_NAME}:${APP_VER}-dev -f ./Dockerfile .
+
+# Run the dev image
+run-dev:
+	docker run -it ${DOCKER_USERNAME}/${APPLICATION_NAME}:${APP_VER} /bin/bash
 
 # Run the Docker image
 run:
-  docker exec -it ${DOCKER_USERNAME}/${APPLICATION_NAME}:${APP_VER}-dev /bin/bash .
+	docker run -it ${DOCKER_USERNAME}/${APPLICATION_NAME}:${APP_VER} /bin/bash
 
 # Push the Docker image
 push:
-  docker push ${DOCKER_USERNAME}/${APPLICATION_NAME}:${APP_VER} .
+	docker push ${DOCKER_USERNAME}/${APPLICATION_NAME}:${APP_VER}
 
 # Push all Docker images
 push-all:
-  docker push ${DOCKER_USERNAME}/${APPLICATION_NAME}:${APP_VER} .
-  docker push ${DOCKER_USERNAME}/${APPLICATION_NAME}:${APP_VER}-slim .
-  docker push ${DOCKER_USERNAME}/${APPLICATION_NAME}:${APP_VER}-dev .
+	docker push ${DOCKER_USERNAME}/${APPLICATION_NAME}:${APP_VER}
+	docker push ${DOCKER_USERNAME}/${APPLICATION_NAME}:${APP_VER}-slim
+	docker push ${DOCKER_USERNAME}/${APPLICATION_NAME}:${APP_VER}-dev
 
-.PHONY: all build build-slim build-dev run push push-all
+.PHONY: all build build-slim build-dev run-dev run push push-all

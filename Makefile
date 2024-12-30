@@ -15,19 +15,19 @@ all: install build package
 
 # Run dev server
 devserver:
-  npm run dev:server
+	npm run dev:server
 
 # Run lint
 lint:
-  npm run lint
+	npm run lint
 
 # Run lint fix
 lint-fix:
-  npm run lint:fix
+	npm run lint:fix
 
 # Run tests
 test:
-  npm run build:test && npm run ts-check:vue
+	npm run build:test && npm run ts-check:vue
 
 # Install dependencies
 install:
@@ -35,7 +35,7 @@ install:
 
 # Check the project
 build:
-  npm run copy:plist && npm run build:ts && node ./scripts/build.ts
+	npm run copy:plist && npm run build:ts && node ./scripts/build.ts
 
 # Package the Electron app
 package:
