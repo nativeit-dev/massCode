@@ -11,9 +11,6 @@ RUN apt-get update && apt-get dist-upgrade -y && \
   npm install -g pnpm && pnpm install && \
   npm install electron --save-dev && \
   pnpm run build:ts && pnpm run build && \
-  tar -czvf release.tar.gz -C /app/dist . && \ rm -rf /app/dist && \
-  git branch -m release-dev && \
-  git add . && git commit -am "Added build artifacts to ./release-dev" && \
-  git push origin release-dev && \
-  apt-get clean -y && apt-get autoclean -y && apt-get autoremove -y && \
-  rm -rf /var/lib/apt/lists/* /var/lib/log/* /tmp/* /var/tmp/*1
+  make package
+  # apt-get clean -y && apt-get autoclean -y && apt-get autoremove -y && \
+  # rm -rf /var/lib/apt/lists/* /var/lib/log/* /tmp/* /var/tmp/*1
